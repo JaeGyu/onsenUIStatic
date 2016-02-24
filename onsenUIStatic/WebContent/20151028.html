@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+<meta charset="utf8" />
+<script src="resources/js/angular/angular.js"></script>
+<script>
+	(function(){
+		var gems = [{
+			name : "dia",
+			price : 2.95,
+			description : "다이아몬드 입니다.",
+			canPurchase: true,
+			soldOut : false
+		},{
+			name : "ruby",
+			price : 5.95,
+			description : "루비 입니다.",
+			canPurchase: true,
+			soldOut : false
+		}]
+		
+		var app = angular.module("store",[]);
+// 		console.log(app);
+		
+		app.controller("StoreController", function(){
+			this.products = gems;
+		});
+	})();
+</script>
+</head>
+<body ng-controller = "StoreController as store">
+	<div ng-repeat="product in store.products" ng-hide="product.soldOut">
+		<h1>{{product.name}}</h1>
+		<h2>${{product.price}}</h2>
+		<p>{{product.description}}</p>
+		<button ng-show="product.canPurchase">Add to Cart</button>
+	</div> 
+</body><!-- 여기까지가 StoreController의 scope이다. -->
+</html>

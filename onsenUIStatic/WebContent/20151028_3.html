@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="utf8" />
+</head>
+<body>
+	<ul ng-controller="PhoneListCtrl">
+		<li ng-repeat="phone in phones">
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+		</li>
+	</ul>
+	<p ng-repeat="i in [0,1,2,3,4,5,6,7,8,9]">
+		{{i}}
+	</p>	
+<!-- <script src="resources/js/angular/angular.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+<script src="20151028_3.js"></script>
+</body>
+</html>

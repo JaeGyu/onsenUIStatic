@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="utf8" />
+</head>
+<body ng-controller="PhoneListCtrl">
+	<input type="text" ng-model="searchKeyword">
+	
+	정렬:
+	<select ng-model="orderProperty">
+		<option value="name" selected>이름</option>
+		<option value="snippet">설명</option>
+		<option value="no">번호</option>
+	</select>
+	
+	<ul>
+		<li ng-repeat="phone in phones | filter:searchKeyword | orderBy:orderProperty">
+			번호 : {{phone.no}} <br/>
+			이름 : {{phone.name}}<br/>
+			설명 : {{phone.snippet}}
+		</li>
+	</ul>
+	
+<!-- <script src="resources/js/angular/angular.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+<script>
+function PhoneListCtrl($scope) {
+	$scope.phones = [ {
+		"no" : 0,
+		"name" : "Nexus S",
+		"snippet" : "Fast just got faster with Nexus S."
+	}, {
+		"no" : 1,
+		"name" : "Motorola XOOM™ with Wi-Fi",
+		"snippet" : "The Next, Next Generation tablet."
+	}, {
+		"no" : 2,
+		"name" : "MOTOROLA XOOM™",
+		"snippet" : "The Next, Next Generation tablet."
+	} ];
+	
+	$scope.orderProperty = "no";
+}
+</script>
+</body>
+</html>
